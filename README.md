@@ -5,6 +5,7 @@ A beginner-friendly C++ project for managing vehicle information.
 ## Features
 - Add vehicles
 - Show vehicle list
+- Update vehicle mileage
 - Menu-based interface
 
 ## Technologies Used

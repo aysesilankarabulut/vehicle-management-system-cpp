@@ -54,6 +54,44 @@ void showVehicles() {
     }
 }
 
+void updateMileage() {
+    if (vehicles.empty()) {
+        cout << "No vehicles found." << endl;
+        return;
+    }
+
+    cout << "\nSaved Vehicles:" << endl;
+    for (size_t i = 0; i < vehicles.size(); ++i) {
+        const Vehicle &vehicle = vehicles[i];
+        cout << i + 1 << ". "
+             << vehicle.brand << " "
+             << vehicle.model << " - Year: "
+             << vehicle.year << ", Mileage: "
+             << vehicle.mileage << endl;
+    }
+
+    cout << "Enter vehicle number: ";
+    int vehicleNumber;
+    cin >> vehicleNumber;
+
+    if (vehicleNumber < 1 || vehicleNumber > static_cast<int>(vehicles.size())) {
+        cout << "Invalid vehicle number." << endl;
+        return;
+    }
+
+    cout << "Enter new mileage: ";
+    int newMileage;
+    cin >> newMileage;
+
+    if (newMileage < 0) {
+        cout << "Mileage cannot be negative." << endl;
+        return;
+    }
+
+    vehicles[vehicleNumber - 1].mileage = newMileage;
+    cout << "Mileage updated successfully." << endl;
+}
+
 int main() {
     int choice;
 
@@ -70,7 +108,7 @@ int main() {
             showVehicles();
         }
         else if (choice == 3) {
-            cout << "Update Mileage feature will be added later." << endl;
+            updateMileage();
         }
         else if (choice == 4) {
             cout << "Check Maintenance Status feature will be added later." << endl;
