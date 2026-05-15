@@ -1,5 +1,16 @@
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
+
+struct Vehicle {
+    string brand;
+    string model;
+    int year;
+    int mileage;
+};
+
+vector<Vehicle> vehicles;
 
 void showMenu() {
     cout << "\nVehicle Management System" << endl;
@@ -8,6 +19,39 @@ void showMenu() {
     cout << "3. Update Mileage" << endl;
     cout << "4. Check Maintenance Status" << endl;
     cout << "5. Exit" << endl;
+}
+
+void addVehicle() {
+    Vehicle vehicle;
+
+    cout << "Enter vehicle brand: ";
+    cin >> vehicle.brand;
+    cout << "Enter vehicle model: ";
+    cin >> vehicle.model;
+    cout << "Enter vehicle year: ";
+    cin >> vehicle.year;
+    cout << "Enter vehicle mileage: ";
+    cin >> vehicle.mileage;
+
+    vehicles.push_back(vehicle);
+    cout << "Vehicle added successfully." << endl;
+}
+
+void showVehicles() {
+    if (vehicles.empty()) {
+        cout << "No vehicles found." << endl;
+        return;
+    }
+
+    cout << "\nSaved Vehicles:" << endl;
+    for (size_t i = 0; i < vehicles.size(); ++i) {
+        const Vehicle &vehicle = vehicles[i];
+        cout << i + 1 << ". "
+             << vehicle.brand << " "
+             << vehicle.model << " - Year: "
+             << vehicle.year << ", Mileage: "
+             << vehicle.mileage << endl;
+    }
 }
 
 int main() {
@@ -20,10 +64,10 @@ int main() {
         cin >> choice;
 
         if (choice == 1) {
-            cout << "Add Vehicle feature will be added later." << endl;
+            addVehicle();
         }
         else if (choice == 2) {
-            cout << "Show Vehicles feature will be added later." << endl;
+            showVehicles();
         }
         else if (choice == 3) {
             cout << "Update Mileage feature will be added later." << endl;
