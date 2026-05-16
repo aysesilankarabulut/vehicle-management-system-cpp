@@ -1,11 +1,12 @@
 # Vehicle Management System
 
-A beginner-friendly C++ project for managing vehicle information.
+A beginner-friendly C++ project for managing vehicle information and learning basic automotive maintenance logic.
 
 ## Features
 - Add vehicles
 - Show vehicle list
 - Update vehicle mileage
+- Check vehicle maintenance status
 - Menu-based interface
 
 ## Technologies Used
